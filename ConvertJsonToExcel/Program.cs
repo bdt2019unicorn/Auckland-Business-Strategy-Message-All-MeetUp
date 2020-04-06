@@ -8,6 +8,7 @@ namespace ConvertJsonToExcel
 {
     class Program
     {
+        static string group_name = "Young-NZ-Business-Professionals-Network"; 
         static DataTable DataFromJson(string file_name)
         {
             string json_string = File.ReadAllText(file_name);
@@ -27,14 +28,13 @@ namespace ConvertJsonToExcel
         static void DataToExcel(DataTable data)
         {
             XLWorkbook wb = new XLWorkbook();
-            wb.Worksheets.Add(data, "Auckland Bussiness Strategies");
-            wb.SaveAs("Auckland Bussiness Strategies.xlsx"); 
+            wb.Worksheets.Add(data, "Links");
+            wb.SaveAs(group_name+".xlsx"); 
         }
 
         static void Main(string[] args)
         {
-            string file_name = "links.json";
-            DataTable json_data = DataFromJson(file_name);
+            DataTable json_data = DataFromJson(group_name+".json");
             DataToExcel(json_data); 
         }
     }
