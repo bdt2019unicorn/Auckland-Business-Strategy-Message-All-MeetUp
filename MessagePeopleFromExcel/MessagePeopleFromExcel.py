@@ -4,16 +4,11 @@ import openpyxl.styles
 import ContactLink
 
 
-
-
-
 filename = "auckland bussiness strategies.xlsx"
 contact_number = 10
 
 mark_contacted_fill_yellow = PatternFill("solid", openpyxl.styles.colors.YELLOW)
-mark_contacted_fill_blue = PatternFill("solid", openpyxl.styles.colors.BLUE)
 
-final_fill = mark_contacted_fill_yellow
 
 workbook = load_workbook(filename)
 worksheet = workbook.active 
@@ -26,8 +21,6 @@ def firstnoncontactcell():
         cell_value = worksheet["a"+str(count)].value.strip()
         if(cell_fill.fgColor.rgb == openpyxl.styles.colors.BLACK) or (not isinstance(cell_fill.fgColor.rgb,str)) or (cell_value==""): 
             break
-        else: 
-            final_fill = mark_contacted_fill_blue if(cell_fill==mark_contacted_fill_yellow) else  mark_contacted_fill_yellow
         count+=1
     return count 
 
@@ -37,8 +30,9 @@ ContactLink.LoginMeetUp()
 end_of_loop = count+contact_number
 while(count<end_of_loop) and (worksheet["A"+str(count)].value.strip()!=""): 
     cell_value = worksheet["A"+str(count)].value.strip()
+    print("Still have "+str(end_of_loop - count))
     ContactLink.MessagePeople(cell_value)
-    worksheet["A"+str(count)].fill = final_fill 
+    worksheet["A"+str(count)].fill = mark_contacted_fill_yellow 
     count+=1
 
 workbook.save(filename)
