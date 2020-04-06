@@ -1,3 +1,4 @@
+import time 
 from selenium import webdriver 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -32,19 +33,24 @@ def ColdMessage():
     text_file = open(file_name,"r")
     message = text_file.read()
     text_file.close()
-    print(message)
+    return message
 
 def WaitForPutTextIn(): 
     try:
-        message = """
-        """
+        message = ColdMessage()
         message_box = driver.find_element_by_xpath('//*[@id="messaging-new-convo"]')
-    except: 
+        message_box.send_keys(message)
+    except Exception as exception: 
+        print(exception)
         WaitForPutTextIn()
 
 def MessagePeople(link): 
-    driver.get(link)
     print(link)
+    driver.get(link)
+    WaitForPutTextIn()
+    time.sleep(3)
+    driver.find_element_by_xpath('//*[@id="messaging-new-send"]').click()
+    time.sleep(7)
 
 
 

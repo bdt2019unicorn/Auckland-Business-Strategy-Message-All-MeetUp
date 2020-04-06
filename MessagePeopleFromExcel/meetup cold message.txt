@@ -2,7 +2,7 @@ Hi there,
 I am in your Tech Start-up Group. 
 I am a software developer with 3 years of experience in front-end languages, PHP/C#/Java back-end languages and SQL database. 
 I had experience in building websites and mobile apps. 
-I am also able to write litle script to automate manual tasks. 
+I am also able to write little script to automate manual tasks. 
 I am currently looking for a software developer or technical role. 
 If you need help in building a website, building an app or an alternative solution to some of the repetitive tasks, I am happy to help. 
 Kind regards,

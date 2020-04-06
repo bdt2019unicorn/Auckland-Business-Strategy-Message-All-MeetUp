@@ -35,7 +35,7 @@ var load_more_member = function(count)
 	(
 		(resolve, reject)=>
 		{
-			if(count>=5504)
+			if(count>=1276)
 			{
 				reject(); 
 			}
