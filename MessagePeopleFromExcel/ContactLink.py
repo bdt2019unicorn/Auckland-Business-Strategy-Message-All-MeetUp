@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from random import randint
 
 driver = webdriver.Chrome("chromedriver")
 
@@ -41,7 +42,6 @@ def WaitForPutTextIn():
         message_box = driver.find_element_by_xpath('//*[@id="messaging-new-convo"]')
         message_box.send_keys(message)
     except Exception as exception: 
-        print(exception)
         WaitForPutTextIn()
 
 def MessagePeople(link): 

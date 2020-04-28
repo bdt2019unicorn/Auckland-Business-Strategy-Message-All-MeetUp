@@ -5,7 +5,7 @@ import ContactLink
 
 
 filename = "auckland bussiness strategies.xlsx"
-contact_number = 10
+contact_number = 9
 
 mark_contacted_fill_yellow = PatternFill("solid", openpyxl.styles.colors.YELLOW)
 
@@ -36,5 +36,3 @@ while(count<end_of_loop) and (worksheet["A"+str(count)].value.strip()!=""):
     count+=1
 
 workbook.save(filename)
-
-
